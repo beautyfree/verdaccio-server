@@ -1,0 +1,37 @@
+plugins: /verdaccio/plugins
+
+storage: /verdaccio/storage
+
+security:
+  api:
+    jwt:
+      sign:
+        expiresIn: 0
+        notBefore: 0
+
+auth:
+  htpasswd:
+    file: /verdaccio/conf/htpasswd
+    max_users: 1
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+
+middlewares:
+  audit:
+    enabled: true
+
+packages:
+  '@*/*':
+    access: $authenticated
+    publish: $authenticated
+    proxy: npmjs
+
+  '**':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+
+logs:
+  - { type: stdout, format: pretty, level: trace }
