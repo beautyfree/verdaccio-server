@@ -6,7 +6,7 @@ security:
   api:
     jwt:
       sign:
-        expiresIn: 0
+        expiresIn: 2y
         notBefore: 0
 
 auth:
