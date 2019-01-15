@@ -6,7 +6,7 @@ security:
   api:
     jwt:
       sign:
-        expiresIn: 0
+        expiresIn: 730d
         notBefore: 0
 
 auth:
@@ -24,7 +24,7 @@ middlewares:
 
 packages:
   '@*/*':
-    access: $authenticated
+    access: $all
     publish: $authenticated
     proxy: npmjs
 
