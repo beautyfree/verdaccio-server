@@ -24,7 +24,7 @@ middlewares:
 
 packages:
   '@*/*':
-    access: $authenticated
+    access: $all
     publish: $authenticated
     proxy: npmjs
 
